@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Sorry</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .section {
+            display: none;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section.active {
+            display: flex;
+        }
+
+        .section1 {
+            background: #ffefdb;
+        }
+
+        .section2 {
+            background: #b3e5fc;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 3rem;
+            text-shadow: 2px 2px #000;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #ff6b6b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #e64e4e;
+        }
+
+        /* Floating "Sorry" Text for Section 2 */
+        .sorry {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sorry:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .sorry:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .sorry:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .sorry:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .sorry:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+        /* Additional Styling for Section 2 */
+        .sad-message {
+            font-size: 1.5rem;
+            color: #ff4d4d;
+            margin-top: 20px;
+            animation: fadeIn 3ms ease-in-out;
+        }
+
+        .final-request {
+            font-size: 1.8rem;
+            color: #ffcccc;
+            margin-top: 30px;
+            animation: fadeIn 3ms ease-in-out 1s;
+        }
+
+        .last-chance {
+            font-size: 1.5rem;
+            color: #ff3333;
+            margin-top: 40px;
+            animation: fadeIn 3ms ease-in-out 2s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Section 1 (Front Page) -->
+    <div class="section section1 active" id="section1">
+        <h1>I'm Sorry😔</h1>
+        <h1>I'm Sorry😔 I'm Sorry😔</h1>
+        <p>Click below for more apologies!</p>
+        <div class="button-container">
+            <button class="button" onclick="showSection('section2')">Next Sorry</button>
+        </div>
+    </div>
+
+    <!-- Section 2 (Back Page) -->
+    <div class="section section2" id="section2">
+        <h1>I'm Really Sorry 😔Hafsah </h1>
+        <p>Sometimes words aren't enough to express how I feel.</p>
+        <p>I deeply regret what happened and hope you can forgive me.</p>
+        <div class="sad-message">Please forgive me. 🙁</div>
+        <div class="final-request">Please yaar ab to baat kar lo 🙁</div>
+
+        <!-- Additional "Sorry" Messages with Animation -->
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+        <div class="sorry">Sorry!</div>
+
+        <!-- New "Last Chance" Message -->
+        <div class="last-chance">
+            Yaar, one last chance please. Don't end our friendship. There is no one like you here. You care, you advise, you guide me. Please, as a fellow Muslim, please understand.
+        </div>
+
+        <div class="button-container">
+            <button class="button" onclick="showSection('section1')">Back</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            const targetSection = document.getElementById(sectionId);
+            targetSection.classList.add('active');
+        }
+    </script>
+</body>
+</html>
